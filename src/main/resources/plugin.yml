@@ -1,0 +1,9 @@
+name: DRdung
+version: 1.0
+main: com.dreel.DRdung.DRdung
+api-version: 1.16
+depend: [WorldEdit, WorldGuard]
+commands:
+  drdung:
+    description: Главная команда плагина
+    permission: drdang.admin
