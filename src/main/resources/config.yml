@@ -1,0 +1,15 @@
+language: "ru"
+
+schematics:
+  dungeon_1:
+    file: "dungeon.schem"
+    chance: 50
+  dungeon_2:
+    file: "dungeon2.schem"
+    chance: 30
+
+spawn-radius: 5000
+min-distance: 300
+
+key:
+  material: "NETHER_STAR"

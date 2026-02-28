@@ -1,0 +1,116 @@
+prefix: "<gradient:#FF5500:#FFAA00>[DRdung]</gradient> &r"
+
+messages:
+  need-key: "<gradient:#FF5555:#FFAA00>Key needed!</gradient>"
+  chest-closed: "<gradient:#FF3333:#FF7777>Closed Chest</gradient>"
+  chest-opened: "<gradient:#55FF55:#AAFFAA>Opened Chest</gradient>"
+  chest-locked: "<gradient:#FF5555:#FF2222>This chest is locked! Vault Relic required.</gradient>"
+  chest-unlocked: "<gradient:#55FF55:#00FF00>Vault unlocked!</gradient>"
+  max-items: "<gradient:#FF5555:#FF0000>Maximum 54 items in loot!</gradient>"
+  tp-success: "<gradient:#55FF55:#00FF00>You have been teleported to the dungeon.</gradient>"
+  chest-respawned: "<gradient:#55FF55:#00FF00>Chests restored!</gradient>"
+  chest-force-open: "<gradient:#55FF55:#00FF00>Chests forcefully opened!</gradient>"
+  dungeon-deleted: "<gradient:#FF5555:#FF0000>Dungeon completely deleted!</gradient>"
+  dungeon-not-found: "<gradient:#FF5555:#FF0000>Failed to load dungeon data. It might be deleted.</gradient>"
+  config-reloaded: "<gradient:#55FF55:#00FF00>Plugin configuration successfully reloaded!</gradient>"
+  player-not-found: "<gradient:#FF5555:#FF0000>Player not found!</gradient>"
+  usage-key: "<gradient:#FF5555:#FF0000>Usage: /drdung key <player> [amount]</gradient>"
+  amount-number: "<gradient:#FF5555:#FF0000>Amount must be a number!</gradient>"
+  key-given: "<gradient:#55FF55:#00FF00>You gave %amount% keys to player %player%.</gradient>"
+  key-received: "<gradient:#55FF55:#00FF00>You received %amount% dungeon keys!</gradient>"
+  unknown-command: "<gradient:#FF5555:#FF0000>Unknown command. Type /drdung help for info.</gradient>"
+  no-dungeons: "<gradient:#FF5555:#FF0000>No generated dungeons!</gradient>"
+  click-to-add: "<gradient:#55FF55:#00FF00>Click on an item in YOUR inventory to add it!</gradient>"
+  error-no-loot: "<gradient:#FF0000:#AA0000>ERROR:</gradient> <gradient:#FF5555:#FF0000>Loot is not configured!</gradient>"
+  add-loot-hint: "&7First, add items via command: <gradient:#FFFF55:#FFAA00>/drdung loot</gradient>"
+  start-search: "<gradient:#FFFF55:#FFAA00>Starting search for ideal locations (min distance %dist% blocks)...</gradient>"
+  cancel-search: "<gradient:#FF5555:#FF0000>Generation canceled! No suitable location found.</gradient>"
+  found-some: "<gradient:#FFAA00:#FF5500>Found only %found% locations out of %amount%. Starting construction...</gradient>"
+  found-all: "<gradient:#55FF55:#00FF00>All %amount% locations successfully found! Starting construction...</gradient>"
+  gen-complete: "<gradient:#55FF55:#00FF00>Generation fully completed! Created dungeons: %amount%.</gradient>"
+  error-schem: "<gradient:#FF0000:#AA0000>ERROR: Schematic file not found! Check the schematics folder.</gradient>"
+
+key:
+  name: "<gradient:#FFAA00:#FF5500>Vault Relic</gradient>"
+  lore:
+    - "&7Opens main vaults in dungeons."
+    - "&7(Keep in a safe place)"
+
+menus:
+  dungeon-list:
+    title: "<gradient:#00AAAA:#005555>Dungeons List</gradient>"
+    item-name: "<gradient:#FFAA00:#FF5500>✦ Dungeon #%id% ✦</gradient>"
+    item-lore:
+      - "&8ID: %id%"
+      - "&7Location: &f%loc%"
+      - ""
+      - "<gradient:#FFFF55:#FFAA00>▶ Click to manage</gradient>"
+  dungeon-manage:
+    title: "<gradient:#00AAAA:#005555>Manage Dungeon #%id%</gradient>"
+    tp-name: "<gradient:#55FFFF:#00AAAA>▶ Teleport</gradient>"
+    tp-lore:
+      - "&7Moves you to the center"
+      - "&7of this structure."
+    respawn-name: "<gradient:#FFFF55:#FFAA00>▶ Restore Chests</gradient>"
+    respawn-lore:
+      - "&7Turns empty chests"
+      - "&7back into closed ones with loot."
+    open-name: "<gradient:#55FF55:#00AA00>▶ Open All Chests</gradient>"
+    open-lore:
+      - "&7Removes locks (holograms)"
+      - "&7from all chests in the dungeon."
+    delete-name: "<gradient:#FF5555:#AA0000>▶ Delete Dungeon</gradient>"
+    delete-lore:
+      - "<gradient:#AA0000:#550000>WARNING!</gradient>"
+      - "&7Replaces all dungeon blocks with air"
+      - "&7and removes WorldGuard region."
+    info-name: "<gradient:#FFAA00:#FF5500>✦ Dungeon Stats ✦</gradient>"
+    info-lore:
+      - ""
+      - "&7Total chests: &f%total%"
+      - "&7Closed remaining: <gradient:#FF5555:#FF0000>%locked%</gradient>"
+    back-name: "<gradient:#FF5555:#AA0000>Back</gradient>"
+  loot:
+    title: "<gradient:#AA00AA:#550055>Loot Setup</gradient>"
+    lore:
+      - ""
+      - "<gradient:#FFAA00:#FF5500>=== CHANCE SETUP ===</gradient>"
+      - "<gradient:#FFFF55:#FFAA00>Chance:</gradient> <gradient:#55FFFF:#00AAAA>%chance%%</gradient>"
+      - "&7LMB / RMB: <gradient:#55FF55:#00AA00>+1%</gradient> &7/ <gradient:#FF5555:#AA0000>-1%</gradient>"
+      - "&7Shift+LMB / RMB: <gradient:#55FF55:#00AA00>+5%</gradient> &7/ <gradient:#FF5555:#AA0000>-5%</gradient>"
+      - ""
+      - "<gradient:#FFAA00:#FF5500>=== AMOUNT SETUP ===</gradient>"
+      - "<gradient:#FFFF55:#FFAA00>Amount:</gradient> <gradient:#55FFFF:#00AAAA>%min% - %max% pcs.</gradient>"
+      - "&7Key '1': <gradient:#FF55FF:#AA00AA>+1 to Min.</gradient>"
+      - "&7Key '2': <gradient:#FF55FF:#AA00AA>-1 to Min.</gradient>"
+      - "&7Key '3': <gradient:#FF55FF:#AA00AA>+1 to Max.</gradient>"
+      - "&7Key '4': <gradient:#FF55FF:#AA00AA>-1 to Max.</gradient>"
+      - ""
+      - "&7Key '9': <gradient:#AA0000:#550000>REMOVE ITEM</gradient>"
+  spawn:
+    title: "<gradient:#AA00AA:#550055>Spawn Setup</gradient>"
+    amount-name: "<gradient:#FFFF55:#FFAA00>Dungeon Amount:</gradient> <gradient:#55FFFF:#00AAAA>%amount%</gradient>"
+    amount-lore:
+      - "&7LMB: +1 | RMB: -1"
+      - "&7Shift+LMB: +5 | Shift+RMB: -5"
+    radius-name: "<gradient:#FFFF55:#FFAA00>Spawn Radius:</gradient> <gradient:#55FFFF:#00AAAA>%radius%</gradient>"
+    radius-lore:
+      - "&7LMB: +100 | RMB: -100"
+      - "&7Shift+LMB: +500 | Shift+RMB: -500"
+    dist-name: "<gradient:#FFFF55:#FFAA00>Min Distance:</gradient> <gradient:#55FFFF:#00AAAA>%dist%</gradient>"
+    dist-lore:
+      - "&7LMB: +10 | RMB: -10"
+      - "&7Shift+LMB: +50 | Shift+RMB: -50"
+    start-name: "<gradient:#55FF55:#00AA00>▶ Start Generation ◀</gradient>"
+
+bossbar:
+  search-title: "<gradient:#55FFFF:#00AAAA>Searching locations:</gradient> <gradient:#FFFF55:#FFAA00>%found% / %amount%</gradient> &7| Time: %time%"
+  gen-title: "<gradient:#55FF55:#00AA00>Generating:</gradient> <gradient:#FFFF55:#FFAA00>%index% / %total%</gradient> &7| Time: %time%"
+
+help:
+  header: "<gradient:#FFAA00:#FF5500>=== DRdung Help ===</gradient>"
+  list: "<gradient:#FFFF55:#FFAA00>/drdung</gradient> &f- Dungeons list"
+  spawn: "<gradient:#FFFF55:#FFAA00>/drdung spawn</gradient> &f- Spawn menu"
+  loot: "<gradient:#FFFF55:#FFAA00>/drdung loot</gradient> &f- Loot setup"
+  key: "<gradient:#FFFF55:#FFAA00>/drdung key <player> [amount]</gradient> &f- Give key"
+  reload: "<gradient:#FFFF55:#FFAA00>/drdung reload</gradient> &f- Reload config"

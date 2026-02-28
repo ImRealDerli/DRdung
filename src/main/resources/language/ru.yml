@@ -1,0 +1,116 @@
+prefix: "<gradient:#FF5500:#FFAA00>[DRdung]</gradient> &r"
+
+messages:
+  need-key: "<gradient:#FF5555:#FFAA00>Нужен ключ!</gradient>"
+  chest-closed: "<gradient:#FF3333:#FF7777>Закрытый Сундук</gradient>"
+  chest-opened: "<gradient:#55FF55:#AAFFAA>Открытый Сундук</gradient>"
+  chest-locked: "<gradient:#FF5555:#FF2222>Этот сундук заперт! Нужна Реликвия Хранилища.</gradient>"
+  chest-unlocked: "<gradient:#55FF55:#00FF00>Хранилище открыто!</gradient>"
+  max-items: "<gradient:#FF5555:#FF0000>Максимум 54 предмета в луте!</gradient>"
+  tp-success: "<gradient:#55FF55:#00FF00>Вы телепортировались к данжу.</gradient>"
+  chest-respawned: "<gradient:#55FF55:#00FF00>Сундуки восстановлены!</gradient>"
+  chest-force-open: "<gradient:#55FF55:#00FF00>Сундуки принудительно открыты!</gradient>"
+  dungeon-deleted: "<gradient:#FF5555:#FF0000>Данж полностью удален!</gradient>"
+  dungeon-not-found: "<gradient:#FF5555:#FF0000>Не удалось загрузить данные данжа. Возможно, он удален.</gradient>"
+  config-reloaded: "<gradient:#55FF55:#00FF00>Конфигурация плагина успешно перезагружена!</gradient>"
+  player-not-found: "<gradient:#FF5555:#FF0000>Игрок не найден!</gradient>"
+  usage-key: "<gradient:#FF5555:#FF0000>Использование: /drdung key <игрок> [кол-во]</gradient>"
+  amount-number: "<gradient:#FF5555:#FF0000>Количество должно быть числом!</gradient>"
+  key-given: "<gradient:#55FF55:#00FF00>Вы выдали %amount% ключей игроку %player%.</gradient>"
+  key-received: "<gradient:#55FF55:#00FF00>Вам выдано %amount% ключей от данжа!</gradient>"
+  unknown-command: "<gradient:#FF5555:#FF0000>Неизвестная команда. Введите /drdung help для справки.</gradient>"
+  no-dungeons: "<gradient:#FF5555:#FF0000>Нет сгенерированных данжей!</gradient>"
+  click-to-add: "<gradient:#55FF55:#00FF00>Кликните по предмету в ВАШЕМ инвентаре, чтобы добавить его!</gradient>"
+  error-no-loot: "<gradient:#FF0000:#AA0000>ОШИБКА:</gradient> <gradient:#FF5555:#FF0000>Лут не настроен!</gradient>"
+  add-loot-hint: "&7Сначала добавьте предметы через команду: <gradient:#FFFF55:#FFAA00>/drdung loot</gradient>"
+  start-search: "<gradient:#FFFF55:#FFAA00>Начинаем поиск идеальных мест (мин. расстояние %dist% блоков)...</gradient>"
+  cancel-search: "<gradient:#FF5555:#FF0000>Генерация отменена! Не найдено ни одного подходящего места.</gradient>"
+  found-some: "<gradient:#FFAA00:#FF5500>Найдено только %found% мест из %amount%. Начинаем постройку...</gradient>"
+  found-all: "<gradient:#55FF55:#00FF00>Все %amount% мест успешно найдены! Начинаем постройку...</gradient>"
+  gen-complete: "<gradient:#55FF55:#00FF00>Генерация полностью завершена! Создано данжей: %amount%.</gradient>"
+  error-schem: "<gradient:#FF0000:#AA0000>ОШИБКА: Файл схематики не найден! Проверьте папку schematics.</gradient>"
+
+key:
+  name: "<gradient:#FFAA00:#FF5500>Реликвия Хранилища</gradient>"
+  lore:
+    - "&7Открывает главные хранилища в данжах."
+    - "&7(Храните в надежном месте)"
+
+menus:
+  dungeon-list:
+    title: "<gradient:#00AAAA:#005555>Список Данжей</gradient>"
+    item-name: "<gradient:#FFAA00:#FF5500>✦ Данж #%id% ✦</gradient>"
+    item-lore:
+      - "&8ID: %id%"
+      - "&7Локация: &f%loc%"
+      - ""
+      - "<gradient:#FFFF55:#FFAA00>▶ Кликните для управления</gradient>"
+  dungeon-manage:
+    title: "<gradient:#00AAAA:#005555>Управление Данжем #%id%</gradient>"
+    tp-name: "<gradient:#55FFFF:#00AAAA>▶ Телепортироваться</gradient>"
+    tp-lore:
+      - "&7Переместит вас к центру"
+      - "&7этой постройки."
+    respawn-name: "<gradient:#FFFF55:#FFAA00>▶ Восстановить сундуки</gradient>"
+    respawn-lore:
+      - "&7Превратит пустые сундуки"
+      - "&7обратно в закрытые с лутом."
+    open-name: "<gradient:#55FF55:#00AA00>▶ Открыть все сундуки</gradient>"
+    open-lore:
+      - "&7Удалит замки (голограммы)"
+      - "&7со всех сундуков в данже."
+    delete-name: "<gradient:#FF5555:#AA0000>▶ Удалить данж</gradient>"
+    delete-lore:
+      - "<gradient:#AA0000:#550000>ВНИМАНИЕ!</gradient>"
+      - "&7Заменит все блоки данжа на воздух"
+      - "&7и удалит приват WorldGuard."
+    info-name: "<gradient:#FFAA00:#FF5500>✦ Статистика Данжа ✦</gradient>"
+    info-lore:
+      - ""
+      - "&7Всего сундуков: &f%total%"
+      - "&7Осталось закрытых: <gradient:#FF5555:#FF0000>%locked%</gradient>"
+    back-name: "<gradient:#FF5555:#AA0000>Назад</gradient>"
+  loot:
+    title: "<gradient:#AA00AA:#550055>Настройка лута</gradient>"
+    lore:
+      - ""
+      - "<gradient:#FFAA00:#FF5500>=== НАСТРОЙКА ШАНСА ===</gradient>"
+      - "<gradient:#FFFF55:#FFAA00>Шанс:</gradient> <gradient:#55FFFF:#00AAAA>%chance%%</gradient>"
+      - "&7ЛКМ / ПКМ: <gradient:#55FF55:#00AA00>+1%</gradient> &7/ <gradient:#FF5555:#AA0000>-1%</gradient>"
+      - "&7Shift+ЛКМ / ПКМ: <gradient:#55FF55:#00AA00>+5%</gradient> &7/ <gradient:#FF5555:#AA0000>-5%</gradient>"
+      - ""
+      - "<gradient:#FFAA00:#FF5500>=== НАСТРОЙКА КОЛ-ВА ===</gradient>"
+      - "<gradient:#FFFF55:#FFAA00>Кол-во:</gradient> <gradient:#55FFFF:#00AAAA>%min% - %max% шт.</gradient>"
+      - "&7Кнопка '1': <gradient:#FF55FF:#AA00AA>+1 к Миним.</gradient>"
+      - "&7Кнопка '2': <gradient:#FF55FF:#AA00AA>-1 к Миним.</gradient>"
+      - "&7Кнопка '3': <gradient:#FF55FF:#AA00AA>+1 к Макс.</gradient>"
+      - "&7Кнопка '4': <gradient:#FF55FF:#AA00AA>-1 к Макс.</gradient>"
+      - ""
+      - "&7Кнопка '9': <gradient:#AA0000:#550000>УДАЛИТЬ ПРЕДМЕТ</gradient>"
+  spawn:
+    title: "<gradient:#AA00AA:#550055>Настройка спавна</gradient>"
+    amount-name: "<gradient:#FFFF55:#FFAA00>Количество данжей:</gradient> <gradient:#55FFFF:#00AAAA>%amount%</gradient>"
+    amount-lore:
+      - "&7ЛКМ: +1 | ПКМ: -1"
+      - "&7Shift+ЛКМ: +5 | Shift+ПКМ: -5"
+    radius-name: "<gradient:#FFFF55:#FFAA00>Радиус спавна:</gradient> <gradient:#55FFFF:#00AAAA>%radius%</gradient>"
+    radius-lore:
+      - "&7ЛКМ: +100 | ПКМ: -100"
+      - "&7Shift+ЛКМ: +500 | Shift+ПКМ: -500"
+    dist-name: "<gradient:#FFFF55:#FFAA00>Мин. дистанция:</gradient> <gradient:#55FFFF:#00AAAA>%dist%</gradient>"
+    dist-lore:
+      - "&7ЛКМ: +10 | ПКМ: -10"
+      - "&7Shift+ЛКМ: +50 | Shift+ПКМ: -50"
+    start-name: "<gradient:#55FF55:#00AA00>▶ Начать генерацию ◀</gradient>"
+
+bossbar:
+  search-title: "<gradient:#55FFFF:#00AAAA>Поиск мест:</gradient> <gradient:#FFFF55:#FFAA00>%found% / %amount%</gradient> &7| Время: %time%"
+  gen-title: "<gradient:#55FF55:#00AA00>Генерация:</gradient> <gradient:#FFFF55:#FFAA00>%index% / %total%</gradient> &7| Время: %time%"
+
+help:
+  header: "<gradient:#FFAA00:#FF5500>=== DRdung Помощь ===</gradient>"
+  list: "<gradient:#FFFF55:#FFAA00>/drdung</gradient> &f- Список данжей"
+  spawn: "<gradient:#FFFF55:#FFAA00>/drdung spawn</gradient> &f- Меню спавна данжей"
+  loot: "<gradient:#FFFF55:#FFAA00>/drdung loot</gradient> &f- Настройка лута"
+  key: "<gradient:#FFFF55:#FFAA00>/drdung key <игрок> [кол-во]</gradient> &f- Выдать ключ"
+  reload: "<gradient:#FFFF55:#FFAA00>/drdung reload</gradient> &f- Перезагрузить конфиг"
